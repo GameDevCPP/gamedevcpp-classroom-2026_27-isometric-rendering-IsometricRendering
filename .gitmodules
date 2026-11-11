@@ -1,0 +1,3 @@
+[submodule "lib/b2d"]
+	path = lib/b2d
+	url = https://github.com/dooglz/Box2D.git

@@ -1,0 +1,14 @@
+diff --git a/imgui-SFML.cpp b/imgui-SFML.cpp
+index b478299..40f2442 100644
+--- a/imgui-SFML.cpp
++++ b/imgui-SFML.cpp
+@@ -1073,7 +1073,8 @@ void setClipboardText(void* /*userData*/, const char* text) {
+ }
+ 
+ const char* getClipboardText(void* /*userData*/) {
+-    std::basic_string<std::uint8_t> tmp = sf::Clipboard::getString().toUtf8();
++    auto u8Clip = sf::Clipboard::getString().toUtf8();
++    std::basic_string<std::uint8_t> tmp(u8Clip.begin(), u8Clip.end());
+     s_clipboardText.assign(tmp.begin(), tmp.end());
+     return s_clipboardText.c_str();
+ }
